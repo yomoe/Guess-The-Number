@@ -6,11 +6,18 @@ numb_from = 1
 numb_to = 50
 number = random.randint(numb_from, numb_to)
 tmp = ''
+def getNumber():
+    while True:
+        player_choose = input(f'{tmp}')
+        if player_choose.isdigit():
+            return int(player_choose)
+        else:
+            print('Enter a number')
 
 print(f'\033[38;2;201;100;58mPick a number between {numb_from} and {numb_to}.\033[0m You have \033[32m{attempts}\033[0m attempts.\nEnter your guess and press \"Enter\".')
 
 while attempts > 0:
-    try_number = int(input(f'{tmp}'))
+    try_number = getNumber()
     attempts -= 1
     if try_number < number:
         tmp = f'👍 Greater than {try_number}\n'
